@@ -1,0 +1,21 @@
+{
+  "name": "tw-issue-repro",
+  "version": "0.0.0",
+  "scripts": {
+    "clean": "rimraf ./dist/*.bundle.{js,css}",
+    "dev": "npm run clean && npm-run-all --parallel dev:*",
+    "dev:css": "NODE_ENV=development TAILWIND_MODE=watch postcss src/css/*.css --dir ./dist --watch --ext bundle.css",
+    "build": "npm run clean && npm-run-all --sequential build:*",
+    "build:css": "NODE_ENV=production postcss src/css/*.css --dir ./dist --ext bundle.css"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.2",
+    "postcss-select": "^2.1.0",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.0.13"
+  }
+}
